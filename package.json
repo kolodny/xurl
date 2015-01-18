@@ -1,0 +1,27 @@
+{
+  "name": "xurl",
+  "version": "0.0.0",
+  "description": "a simple url parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Moshe Kolodny",
+  "license": "MIT",
+  "keywords": [
+    "url",
+    "parser"
+  ],
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kolodny/xurl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kolodny/xurl/issues"
+  },
+  "homepage": "https://github.com/kolodny/xurl"
+}
