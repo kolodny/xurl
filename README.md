@@ -6,7 +6,7 @@ xURL
 usage:
 ```js
 var xURL = require('xurl');
-xurl('http://www.google.com:8080/index.html?qs#hash');
+xURL('http://www.google.com:8080/index.html?qs#hash');
 
 /* returns:
 {
