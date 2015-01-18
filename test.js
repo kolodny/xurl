@@ -3,7 +3,8 @@ var xURL = require('./index');
 
 describe('xURL', function() {
   it('can parse a full url', function() {
-    assert.deepEqual(xURL('http://www.google.com:8080/index.html?qs#hash'), {
+    var url = 'http://www.google.com:8080/index.html?qs#hash';
+    assert.deepEqual(xURL(url), {
       "protocol": "http:",
       "host": "www.google.com:8080",
       "hostname": "www.google.com",
@@ -11,12 +12,13 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?qs",
       "hash": "#hash",
-      "href": "http://www.google.com:8080/index.html?qs#hash"
+      "href": url
     });
   });
 
   it('can parse an empty url', function() {
-    assert.deepEqual(xURL(''), {
+    var url = '';
+    assert.deepEqual(xURL(url), {
       "protocol": undefined,
       "host": "",
       "hostname": "",
@@ -24,12 +26,28 @@ describe('xURL', function() {
       "pathname": "",
       "search": "",
       "hash": "",
-      "href": ""
+      "href": url
     });
   });
 
+  it('can parse an empty path', function() {
+    var url = 'http://www.google.com:8080?qs#hash';
+    assert.deepEqual(xURL(url), {
+      "protocol": "http:",
+      "host": "www.google.com:8080",
+      "hostname": "www.google.com",
+      "port": "8080",
+      "pathname": "",
+      "search": "?qs",
+      "hash": "#hash",
+      "href": url
+    });
+  });
+
+
   it('can parse a url without a protocol', function() {
-    assert.deepEqual(xURL('//www.google.com:8080/index.html?qs#hash'), {
+    var url = '//www.google.com:8080/index.html?qs#hash';
+    assert.deepEqual(xURL(url), {
       "protocol": undefined,
       "host": "www.google.com:8080",
       "hostname": "www.google.com",
@@ -37,12 +55,13 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?qs",
       "hash": "#hash",
-      "href": "//www.google.com:8080/index.html?qs#hash"
+      "href": url
     });
   });
 
   it('can parse a url without a port', function() {
-    assert.deepEqual(xURL('http://www.google.com/index.html?qs#hash'), {
+    var url = 'http://www.google.com/index.html?qs#hash';
+    assert.deepEqual(xURL(url), {
       "protocol": "http:",
       "host": "www.google.com",
       "hostname": "www.google.com",
@@ -50,12 +69,13 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?qs",
       "hash": "#hash",
-      "href": "http://www.google.com/index.html?qs#hash"
+      "href": url
     });
   });
 
   it('can parse a url without a port', function() {
-    assert.deepEqual(xURL('http://www.google.com/index.html?qs#hash'), {
+    var url = 'http://www.google.com/index.html?qs#hash';
+    assert.deepEqual(xURL(url), {
       "protocol": "http:",
       "host": "www.google.com",
       "hostname": "www.google.com",
@@ -63,12 +83,13 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?qs",
       "hash": "#hash",
-      "href": "http://www.google.com/index.html?qs#hash"
+      "href": url
     });
   });
 
   it('can parse a url without an empty query string', function() {
-    assert.deepEqual(xURL('http://www.google.com:8080/index.html?#hash'), {
+    var url = 'http://www.google.com:8080/index.html?#hash';
+    assert.deepEqual(xURL(url), {
       "protocol": "http:",
       "host": "www.google.com:8080",
       "hostname": "www.google.com",
@@ -76,12 +97,13 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?",
       "hash": "#hash",
-      "href": "http://www.google.com:8080/index.html?#hash"
+      "href": url
     });
   });
 
   it('can parse a url without a hash', function() {
-    assert.deepEqual(xURL('http://www.google.com:8080/index.html?qs#'), {
+    var url = 'http://www.google.com:8080/index.html?qs#';
+    assert.deepEqual(xURL(url), {
       "protocol": "http:",
       "host": "www.google.com:8080",
       "hostname": "www.google.com",
@@ -89,12 +111,13 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?qs",
       "hash": "#",
-      "href": "http://www.google.com:8080/index.html?qs#"
+      "href": url
     });
   });
 
   it('can parse a url without an empty query string', function() {
-    assert.deepEqual(xURL('http://www.google.com:8080/index.html?qs'), {
+    var url = 'http://www.google.com:8080/index.html?qs';
+    assert.deepEqual(xURL(url), {
       "protocol": "http:",
       "host": "www.google.com:8080",
       "hostname": "www.google.com",
@@ -102,7 +125,7 @@ describe('xURL', function() {
       "pathname": "/index.html",
       "search": "?qs",
       "hash": "",
-      "href": "http://www.google.com:8080/index.html?qs"
+      "href": url
     });
   });
 

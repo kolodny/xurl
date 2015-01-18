@@ -1,4 +1,4 @@
-var qparse = /^(?:([a-z]\w*:))?(?:\/{2,3})?([^\/]*)([^\?#]*)(\?[^#]*)?(#.*)?$/i;
+var qparse = /^(?:([a-z]\w*:))?(?:\/{2,3})?([^\/\?]*)([^\?#]*)(\?[^#]*)?(#.*)?$/i;
 module.exports = function xURL(url) {
   var parsed = qparse.exec(url);
   var hostParts = parsed[2].split(':');

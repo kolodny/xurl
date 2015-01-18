@@ -1,6 +1,6 @@
 {
   "name": "xurl",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a simple url parser",
   "main": "index.js",
   "scripts": {
